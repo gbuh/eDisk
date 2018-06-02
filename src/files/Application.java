@@ -1,5 +1,7 @@
 package files;
-
+/*
+ * Class Application
+*/
 public class Application {
     private String nameApp;
 
