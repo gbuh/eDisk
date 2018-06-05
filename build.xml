@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="files" default="compile" basedir=".">
+
+    <!-- ==========PROPERTIES============ -->
+
+    <property environment="env" />
+    <property file="build_${env.HOST}.properties" />
+    <property file="build.properties" />
+    <property name="build.dir" value=".build" />
+    <property name="lib.dir" value="lib" />
+    <path id="cp">
+        <fileset dir="${lib.dir}" includes="**/*.jar" />
+    </path>
+    <!-- ==========TARGETS=============== -->
+
+    <target name="all" depends="clean,compile" />
+
+    <!-- ==========CLEAN================= -->
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <!-- ==========COMPILE=============== -->
+
+    <target name="compile">
+        <mkdir dir="${build.dir}" />
+        <javac srcdir="src" destdir="${build.dir}"
+            includeantruntime="false" classpathref="cp" />
+    </target>
+</project>

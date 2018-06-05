@@ -1,21 +1,18 @@
 package files;
-/*
- * Class Application
-*/
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import files.service.HelloService;
+
 public class Application {
-    private String nameApp;
-
-    public String getNameApp() {
-        return nameApp;
-    }
-
-    public void setNameApp(String nameApp) {
-        this.nameApp = nameApp;
-    }
-
     public static void main(String[] args) {
-        Application app = new Application();
-        app.setNameApp("Hi! I'm good app)");
-        System.out.println(app.getNameApp());
+        Logger log = LoggerFactory.getLogger(Application.class);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/files/config.xml");
+        HelloService service = ctx.getBean(HelloService.class);
+        service.print();
+        log.info("{} {} !!!", 123, "Logger");
+        ((ClassPathXmlApplicationContext) ctx).close();
     }
 }

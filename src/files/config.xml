@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location"
+            value="classpath:config.properties" />
+    </bean>
+    <!-- bean id="stdprn" class="files.service.StdPrinter" / -->
+    <bean id="stdprn" class="files.service.FilePrinter">
+        <constructor-arg value="${file.out.name}" />
+    </bean>
+    <bean id="hello" class="files.service.HelloServiceImpl">
+        <constructor-arg ref="stdprn" />
+        <!-- property name="printer" ref="stdprn"/ -->
+    </bean>
+</beans>
