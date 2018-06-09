@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Sat Jun 09 22:48:33 MSK 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-e617-daba-00000341fd18 
+Sat Jun 09 23:32:39 MSK 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-e640-39d1-00000344f0f0 
 on database directory D:\Documents\eclipse-workspace\eDisc\.derby with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
 Loaded from file:/D:/Documents/eclipse-workspace/eDisc/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,5 +12,18 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sat Jun 09 22:48:39 MSK 2018:
-Shutting down instance a816c00e-0163-e617-daba-00000341fd18 on database directory D:\Documents\eclipse-workspace\eDisc\.derby with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+Sat Jun 09 23:32:45 MSK 2018:
+Shutting down instance a816c00e-0163-e640-39d1-00000344f0f0 on database directory D:\Documents\eclipse-workspace\eDisc\.derby with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+----------------------------------------------------------------
+Sat Jun 09 23:32:45 MSK 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 48d7402a-0163-e640-39d1-00000344f0f0 
+on database directory D:\Documents\eclipse-workspace\eDisc\.derby with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+Loaded from file:/D:/Documents/eclipse-workspace/eDisc/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_171-b11
+user.dir=D:\Documents\eclipse-workspace\eDisc
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

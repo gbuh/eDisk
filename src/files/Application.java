@@ -1,7 +1,7 @@
 package files;
 
-import files.service.HelloService;
-
+import files.dao.RoleDao;
+import files.entity.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -12,15 +12,14 @@ public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/config.xml");
+        final ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/config.xml");
 
-        log.info("Start app INFO {}!!", "Logger");
-        log.debug("Start app DEBUG {}!?", "Logger");
-
-        HelloService service = ctx.getBean(HelloService.class);
-
-        service.print();
-
+        final RoleDao dao = ctx.getBean(RoleDao.class);
+        
+        for (Role r : dao.findAll()) {
+            log.info(r.getName());
+        }
+        
         ((ClassPathXmlApplicationContext) ctx).close();
     }
 }

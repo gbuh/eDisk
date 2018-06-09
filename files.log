@@ -1658,3 +1658,6 @@
 2018-06-09 22:48:39,161 DEBUG [main] DefaultListableBeanFactory.destroySingletons     - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6ea12c19: defining beans [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,liquibase,stdprn,hello]; root of factory hierarchy
 2018-06-09 22:48:39,162 DEBUG [main] DefaultListableBeanFactory.destroyBean     - Retrieved dependent beans for bean 'dataSource': [liquibase]
 2018-06-09 22:48:39,162 DEBUG [main] DisposableBeanAdapter.invokeCustomDestroyMethod     - Invoking destroy method 'close' on bean with name 'dataSource'
+2018-06-09 23:32:45,451 INFO  [main] Application.main     - ROLE_SYSTEM
+2018-06-09 23:32:45,454 INFO  [main] Application.main     - ROLE_ADMIN
+2018-06-09 23:32:45,455 INFO  [main] Application.main     - ROLE_USER
