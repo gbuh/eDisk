@@ -1,18 +1,26 @@
 package files;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import files.service.HelloService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Application {
+
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args) {
-        Logger log = LoggerFactory.getLogger(Application.class);
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/files/config.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/config.xml");
+
+        log.info("Start app INFO {}!!", "Logger");
+        log.debug("Start app DEBUG {}!?", "Logger");
+
         HelloService service = ctx.getBean(HelloService.class);
+
         service.print();
-        log.info("{} {} !!!", 123, "Logger");
+
         ((ClassPathXmlApplicationContext) ctx).close();
     }
 }
