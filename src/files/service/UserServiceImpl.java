@@ -23,21 +23,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Long uid) {
-        User user = userDao.read(uid);
-        user.setRoles(roleDao.findByUserId(uid));
-        return user;
+        return userDao.read(uid);
     }
 
     @Override
     public User getUser(String name) {
-        User user = userDao.findByName(name);
-        user.setRoles(roleDao.findByUserId(user.getId()));
-        return user;
+        return userDao.findByName(name);
     }
 
     @Override
     public List<User> getUsers() {
-        // TODO Auto-generated method stub
         return userDao.findAll();
     }
 

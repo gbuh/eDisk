@@ -19,13 +19,19 @@
         <property name="changeLog" value="classpath:db-changelog.xml" />
     </bean>
 
+    <bean id="roleRowMapper" class="files.dao.jdbc.RoleRowMapper" />
+
     <bean id="dao" abstract="true" class="org.springframework.jdbc.core.support.JbdcDaoSupport">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="roleDao" class="files.dao.jdbc.RoleJdbcDao" parent="dao" />
+    <bean id="roleDao" class="files.dao.jdbc.RoleJdbcDao" parent="dao">
+        <property name="rowMapper" ref="roleRowMapper" />
+    </bean>
 
-    <bean id="userDao" class="files.dao.jdbc.UserJdbcDao" parent="dao" />
+    <bean id="userDao" class="files.dao.jdbc.UserJdbcDao" parent="dao">
+        <property name="roleRowMapper" ref="roleRowMapper" />
+    </bean>
 
     <bean id="userService" class="files.service.UserServiceImpl">
         <property name="roleDao" ref="roleDao" />

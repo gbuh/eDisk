@@ -16,7 +16,7 @@ public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/config.xml");
 
         final UserService srv = ctx.getBean(UserService.class);
@@ -39,9 +39,24 @@ public class Application {
         log.info("id:" + user.getId());
 
         for (User u : srv.getUsers()) {
-            log.info(u.getName());
+            log.info("user: {}", u.getName());
+            if (u.getRoles() != null) {
+                for (Role r : u.getRoles()) {
+                    log.info("role: {}", r.getName());
+                }
+            }
         }
+/*
+        User u = srv.getUser("admin");
 
+        log.info("user: {}", u.getName());
+
+        if (u.getRoles() != null) {
+            for (Role r : u.getRoles()) {
+                log.info("role: {}", r.getName());
+            }
+        }
+*/
         ((ClassPathXmlApplicationContext) ctx).close();
     }
 }
