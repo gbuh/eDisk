@@ -23,8 +23,13 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="roledao" class="files.dao.jdbc.RoleJdbcDao" parent="dao" />
+    <bean id="roleDao" class="files.dao.jdbc.RoleJdbcDao" parent="dao" />
 
-    <bean id="userdao" class="files.dao.jdbc.UserJdbcDao" parent="dao" />
+    <bean id="userDao" class="files.dao.jdbc.UserJdbcDao" parent="dao" />
+
+    <bean id="userService" class="files.service.UserServiceImpl">
+        <property name="roleDao" ref="roleDao" />
+        <property name="userDao" ref="userDao" />
+    </bean>
 
 </beans>

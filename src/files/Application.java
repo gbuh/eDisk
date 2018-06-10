@@ -1,15 +1,16 @@
 package files;
 
-import files.dao.RoleDao;
-import files.dao.UserDao;
-import files.entity.Role;
-import files.entity.User;
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Random;
+import files.entity.Role;
+import files.entity.User;
+import files.service.UserService;
+
 
 public class Application {
 
@@ -18,28 +19,26 @@ public class Application {
     public static void main(String[] args) {
         final ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/config.xml");
 
-        final RoleDao dao = ctx.getBean(RoleDao.class);
+        final UserService srv = ctx.getBean(UserService.class);
 
-        for (Role r : dao.findAll()) {
+        for (Role r : srv.getRoles()) {
             log.info(r.getName());
         }
 
-        final UserDao userDao = ctx.getBean(UserDao.class);
-
-        for (User u : userDao.findAll()) {
+        for (User u : srv.getUsers()) {
             log.info(u.getName());
         }
 
         User user = new User();
-        user.setName("user" + new Random().nextInt());
+        user.setName("user_" + new Random().nextInt());
         user.setPassword("password");
         user.setEnabled(Boolean.TRUE);
 
-        userDao.create(user);
+        srv.saveUser(user);
 
         log.info("id:" + user.getId());
 
-        for (User u : userDao.findAll()) {
+        for (User u : srv.getUsers()) {
             log.info(u.getName());
         }
 
