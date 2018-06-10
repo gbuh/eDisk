@@ -19,19 +19,12 @@
         <property name="changeLog" value="classpath:db-changelog.xml" />
     </bean>
 
-    <bean id="roledao" class="files.dao.jdbc.RoleJdbcDao">
+    <bean id="dao" abstract="true" class="org.springframework.jdbc.core.support.JbdcDaoSupport">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="stdprn" class="files.service.StdPrinter" />
+    <bean id="roledao" class="files.dao.jdbc.RoleJdbcDao" parent="dao" />
 
-    <!-- bean id="stdprn" class="files.service.FilePrinter">
-        <constructor-arg value="${file.out.name}" />
-    </bean -->
-
-    <bean id="hello" class="files.service.HelloServiceImpl">
-        <constructor-arg ref="stdprn" />
-        <!-- property name="printer" ref="stdprn"/ -->
-    </bean>
+    <bean id="userdao" class="files.dao.jdbc.UserJdbcDao" parent="dao" />
 
 </beans>

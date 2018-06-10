@@ -20,13 +20,12 @@
 
     <logger name="files" additivity="false">
         <level value="DEBUG" />
-        <appender-ref ref="file" />
         <appender-ref ref="console" />
     </logger>
 
     <root>
-        <level value="INFO" />
-        <appender-ref ref="console" />
+        <level value="ERROR" />
+        <appender-ref ref="file" />
     </root>
 
 </log4j:configuration>
